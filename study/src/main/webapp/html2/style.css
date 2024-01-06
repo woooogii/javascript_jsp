@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+body {
+	font-size: 19pt;
+}
+
+span.c1 {
+	color: blue;
+	font-family: 궁서;
+}
+span.c2 {
+	color: red;
+	font-family: 돋움;
+}

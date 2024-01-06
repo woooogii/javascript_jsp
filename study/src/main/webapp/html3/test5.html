@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+function fOpen() {
+	
+	window.open("addr.html","newwindow","width=400,height=200,status=yes");
+}
+
+function fImg(scrc) {
+	window.document.images["img1"].src = scrc;
+}
+
+ 
+function addrCopy() {
+	var f = document.myForm;
+	if(f.chk.checked){
+		f.client2.value = f.client1.value;
+	}else{
+		f.client2.value = "";
+	}
+}
+
+function checkAll() {
+	var clength = document.mySul["sul"].length;
+	//alter(clength);
+	for(var i=0;i<clength;i++){
+		document.mySul["sul"][i].checked = true;
+	}
+}
+
+function checkDel() {
+	var clength = document.mySul["sul"].length;
+	//alter(clength);
+	for(var i=0;i<clength;i++){
+		document.mySul["sul"][i].checked = false;
+	}
+}
+
+function bestPoll() {
+	var f = document.bestSul.bsul;
+	var clength = f.length;
+	
+	for(var i=0;i<clength;i++){
+		if(f[i].checked){
+			alert(f[i].value + "를(을) 좋아하는구나?")
+			return;
+		}
+	}
+	
+	alert("술 싫어하냐?");
+}
+
+function emailCheck() {
+	var f = document.mySel;
+	var clength = f.emailSel.options.length;
+	var cindex = f.emailSel.selectedIndex;
+	
+	//alert(clength +":" + cindex);
+
+	f.email2.value="";
+	if(cindex==(clength-1)){//직접입력 선택
+		f.email2.readOnly = false;
+	}else{
+		f.email2.value = f.emailSel.options[cindex].value;
+		f.email2.readOnly = true;
+	}
+}
+
+
+
+</script>
+
+</head>
+<body>
+
+새로운 윈도우 열기<br/>
+<br/>
+거주지역 <a href="javascript:fOpen();"><img src="../html1/image/bt_internal.gif"/></a>
+
+<br/>
+<hr/>
+<br/>
+
+<h3>이미지 다루기</h3>
+<img src="../html1/image/13798939b.jpg" width="300" height="300" name="img1"><br/>
+
+<img src="../html1/image/13798939b.jpg" width="80" border="1" onmouseover="fImg('../html1/image/13798939b.jpg')">
+<img src="../html1/image/13798939c.jpg" width="80" border="1" onmouseover="fImg('../html1/image/13798939c.jpg')">
+<img src="../html1/image/13798939e.jpg" width="80" border="1" onmouseover="fImg('../html1/image/13798939e.jpg')">
+<img src="../html1/image/13798939f.jpg" width="80" border="1" onmouseover="fImg(this.src)">
+
+<br/>
+<hr/>
+<br/>
+
+<form action="" name="myForm">
+주문고객정보 - 주소<br/> <input type="text" size="40" name="client1"/>
+<input type="checkbox" name="chk" onclick="addrCopy();"/>배송장소가 위와 동일<br/>
+배송장소 정보 주소 - <br/><input type="text" size="40" name="client2">
+</form>
+
+
+<br/>
+<hr/>
+<br/>
+
+<h3>좋아하는 술 종류</h3>
+<form action="" name="mySul">
+<a href="javascript:checkAll()">전체 선택</a>/
+<a href="javascript:checkDel()">전체 해제</a><br/>
+
+<input type="checkbox" name="sul"/>위스키<br/>
+<input type="checkbox" name="sul"/>보드카<br/>
+<input type="checkbox" name="sul"/>와인<br/>
+<input type="checkbox" name="sul"/>꼬냑<br/>
+<input type="checkbox" name="sul"/>칵테일<br/>
+<input type="checkbox" name="sul"/>소주<br/>
+<input type="checkbox" name="sul"/>맥주<br/>
+<input type="checkbox" name="sul"/>막걸리<br/>
+
+</form>
+
+
+<h3>가장 좋아하는 술</h3>
+<form action="" name="bestSul">
+<input type="radio" name="bsul" value="위스키"/>위스키<br/>
+<input type="radio" name="bsul" value="보드카/">보드카<br/>
+<input type="radio" name="bsul" value="와인"/>와인<br/>
+<input type="radio" name="bsul" value="꼬냑"/>꼬냑<br/>
+<input type="radio" name="bsul" value="칵테일"/>칵테일<br/>
+<input type="radio" name="bsul" value="소주"/>소주<br/>
+<input type="radio" name="bsul" value="맥주"/>맥주<br/>
+<input type="radio" name="bsul" value="막걸리"/>막걸리<br/>
+
+<a href="javascript:bestPoll();">
+<img alt="" src="../html1/image/btn_poll01.gif">
+</a>
+
+</form>
+
+<br/>
+<hr/>
+<br/>
+
+<form action="" name="mySel">
+
+e-mail주소: 
+<input type="text" name="email1"/>
+@
+<input type="text" name="email2"/>
+
+<select name="emailSel" onchange="emailCheck();">
+
+<option value="">선택</option>
+<option value="naver.com">네이버</option>
+<option value="daum.net">다음</option>
+<option value="yahoo.com">야후</option>
+<option value="nate.com">네이트</option>
+<option value="">직접입력</option>
+
+</select>
+
+</form>
+
+
+
+
+
+
+
+<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/>
+
+
+</body>
+</html>
